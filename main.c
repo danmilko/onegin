@@ -18,10 +18,11 @@ int FillBuffer(char* text, long sizeOfText, char* name);
 void GetIndexes(String* index, char* text, int countText, int countStr);
 void GetStringByAdresses(char* adress1, char* s);
 void Swap(String* adress1, String* adress2);
-void BubbleSortText(String* index, int textSize, int (*cmp)(const char*, const char*, const char*, const char*));
+void BubbleSortText(String* index, int textSize, int (*cmp)(char*, char*, char*, char*));
 void OutputText(String* index, int countStrings, char* name);
 int StrCmpFront(char* str1Begin, char* str2Begin, char* str1End, char* str2End);
 int StrCmpBack(char* str1Begin, char* str2Begin, char* str1End, char* str2End);
+void StdUse();
 
 int main()
 {
@@ -178,7 +179,7 @@ void Swap(String* adress1, String* adress2)
     *adress1 = *adress2;
     *adress2 = temp;
 }
-void BubbleSortText(String* index, int textSize, int (*cmp)(const char*, const char*, const char*, const char*))
+void BubbleSortText(String* index, int textSize, int (*cmp)(char*, char*, char*, char*))
 {
     /**
         @brief This sorts an array by the bubble sorting (not effective).
@@ -301,7 +302,6 @@ void StdUse()
 	if (sizeOfBuffer < 0)
 	{
 		printf("Something went wrong. Check the file and reload the program\n");
-		return -1;
 	}
 
 	char* buffer;
@@ -312,7 +312,7 @@ void StdUse()
 	int countStrings = CountN(buffer, sizeOfBuffer);
 	String* index = (String*)calloc(countStrings, sizeof(String*));
 	GetIndexes(index, buffer, sizeOfBuffer, countStrings);
-	BubbleSortText(index, countStrings, StrCmpFront);
+	BubbleSortText(index, countStrings, StrCmpBack);
 	printf("Введите имя файла для записи полученного стиха. Ограничение 50 символов: ");
     scanf("%s", nameOfFile);
 	OutputText(index, countStrings, nameOfFile);
