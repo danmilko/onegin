@@ -1,7 +1,6 @@
 # depslib dependency file v1.0
-1568312830 source:/home/milkodan/Документы/Codeblock Projects/start1/on4/main.c
+1568646195 source:/home/milkodan/Документы/Codeblock Projects/start1/on4/main.c
 	<stdlib.h>
 	<stdio.h>
 	<assert.h>
-	<time.h>
 
